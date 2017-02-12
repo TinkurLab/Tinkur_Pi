@@ -1,0 +1,6 @@
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xscreensaver -no-splash
+@point-rpi
+
+@chromium-browser https://rally1.rallydev.com/#/41213512208d/custom/60098809061 --kiosk

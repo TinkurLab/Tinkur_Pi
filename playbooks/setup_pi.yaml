@@ -17,6 +17,10 @@
       name: netatalk
       state: latest
       install_recommends: yes
+  - name: Copy autostart to start Chromium in Kiosk mode w/ Kanban board
+    copy:
+      src: ../src/autostart
+      dest: /home/pi/.config/lxsession/LXDE-pi/
   - name: restart machine
     command: shutdown -r now "Ansible updates triggered"
     async: 0
