@@ -1,0 +1,24 @@
+---
+- hosts: pis
+  remote_user: pi
+  tasks:
+  - name: ping all hosts
+    ping:
+  - name: Run the equivalent of "apt-get update" as a separate step
+    apt:
+      update_cache: yes
+  - name: Install "avahi-daemon" to enable SSHing via host name
+    apt:
+      name: avahi-daemon
+      state: latest
+      install_recommends: yes
+  - name: Install "netatalk" to enable SSHing via host name
+    apt:
+      name: netatalk
+      state: latest
+      install_recommends: yes
+  - name: restart machine
+    command: shutdown -r now "Ansible updates triggered"
+    async: 0
+    poll: 0
+    ignore_errors: true
